@@ -1,10 +1,9 @@
 import time
 import pandas as pd
-import numpy as np
 
-CITY_DATA = { 'chicago': 'chicago.csv',
+CITY_DATA = {'chicago': 'chicago.csv',
               'new york city': 'new_york_city.csv',
-              'washington': 'washington.csv' }
+              'washington': 'washington.csv'}
 
 def get_filters():
     """
@@ -25,10 +24,11 @@ def get_filters():
         else:
             print('\nPlease type in a valid city, either chicago, new york city, or washington.\n')
 
-
+    """Get user input for month (all, january, february, ... , june)"""
     month_input = ['January', 'February', 'March', 'April', 'May', 'June','None']
+
     while True:
-        month=input('which month? January, February, March, April, May, or June? \
+        month = input('which month? January, February, March, April, May, or June? \
         \nPlease type out the full month name.  Type "none" for no month filer.\n').title()
         if month in month_input:
             break
@@ -36,9 +36,10 @@ def get_filters():
             print('Please type out one full month name or "none".\n')
 
 
-    weekdays_input = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday','None']
+    weekdays_input = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'None']
+
     while True:
-        day=input('which day? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, or Saturday? \
+        day = input('which day? Sunday, Monday, Tuesday, Wednesday, Thursday, Friday, or Saturday? \
          \nPlease type out the full day name.  Type "none" for no day filter.\n').title()
         if day in weekdays_input:
             break
@@ -60,19 +61,19 @@ def load_data(city, month, day):
     Returns:
         df - Pandas DataFrame containing city data filtered by month and day
     """
-    df=pd.read_csv(CITY_DATA[city].lower())
+    df = pd.read_csv(CITY_DATA[city].lower())
 
-    df['Start Time']=pd.to_datetime(df['Start Time'])
-    df['month']=df['Start Time'].dt.month
-    df['day_of_week']=df['Start Time'].dt.weekday_name
+    df['Start Time'] = pd.to_datetime(df['Start Time'])
+    df['month'] = df['Start Time'].dt.month
+    df['day_of_week'] = df['Start Time'].dt.weekday_name
 
     if month != 'None':
-        months=['january', 'february', 'march', 'april', 'may', 'june']
-        month=months.index(month.lower())+1
-        df=df[df['month']==month]
+        months = ['january', 'february', 'march', 'april', 'may', 'june']
+        month = months.index(month.lower())+1
+        df = df[df['month'] == month]
 
     if day != 'None':
-        df=df[df['day_of_week']==day.title()]
+        df = df[df['day_of_week'] == day.title()]
 
     return df
 
@@ -84,14 +85,14 @@ def time_stats(df):
     start_time = time.time()
 
     """Display the most common month"""
-    popular_month=df['month'].mode()[0]
+    popular_month = df['month'].mode()[0]
 
     """Display the most common day of week"""
-    popular_day=df['day_of_week'].mode()[0]
+    popular_day = df['day_of_week'].mode()[0]
 
     """Display the most common start hour"""
-    df['hour']=df['Start Time'].dt.hour
-    popular_hour=df['hour'].mode()[0]
+    df['hour'] = df['Start Time'].dt.hour
+    popular_hour = df['hour'].mode()[0]
 
     print("\nThe most popular month is {}; \
            \nThe most popular day of week is {}; \
@@ -108,13 +109,13 @@ def station_stats(df):
     start_time = time.time()
 
     """Display most commonly used start station"""
-    popular_start=df['Start Station'].mode()[0]
+    popular_start = df['Start Station'].mode()[0]
 
     """Display most commonly used end station"""
-    popular_end=df['End Station'].mode()[0]
+    popular_end = df['End Station'].mode()[0]
 
     """Display most frequent combination of start station and end station trip"""
-    popular_trip=df.groupby(['Start Station', 'End Station']).size().nlargest(1)
+    popular_trip = df.groupby(['Start Station', 'End Station']).size().nlargest(1)
 
     print("\nThe most popular start station is {}; \
            \nThe most popular end station is {}; \
@@ -129,12 +130,12 @@ def trip_duration_stats(df):
     start_time = time.time()
 
     """Display total travel time"""
-    df['End Time']=pd.to_datetime(df['End Time'])
-    df['duration']=df['End Time']-df['Start Time']
-    total_duration=df['duration'].sum()
+    df['End Time'] = pd.to_datetime(df['End Time'])
+    df['duration'] = df['End Time']-df['Start Time']
+    total_duration = df['duration'].sum()
 
     """Display mean travel time"""
-    mean_duration=df['duration'].mean()
+    mean_duration = df['duration'].mean()
 
     print("\nTotal travel time is {}; \
            \nThe mean travel time is {}".format(total_duration, mean_duration))
@@ -149,12 +150,12 @@ def user_stats(df):
     start_time = time.time()
 
     """Display counts of user types"""
-    user_counts=df['User Type'].value_counts()
+    user_counts = df['User Type'].value_counts()
     print("\nThe breakdown of users is: \n{}".format(user_counts))
 
     """Display counts of gender"""
     if 'Gender' in df.columns:
-        gender_counts=df['Gender'].value_counts()
+        gender_counts = df['Gender'].value_counts()
         print("\nThe breakdown of gender is \n{}".format(gender_counts))
     else:
         print( "this city does not have gender data")
@@ -162,9 +163,9 @@ def user_stats(df):
 
     """Display earliest, most recent, and most common year of birth"""
     if 'Birth Year' in df.columns:
-        earliest_birth=df['Birth Year'].min()
-        recent_birth=df['Birth Year'].max()
-        common_birth=df['Birth Year'].mode()[0]
+        earliest_birth = df['Birth Year'].min()
+        recent_birth = df['Birth Year'].max()
+        common_birth = df['Birth Year'].mode()[0]
         print("\nThe earliest year of birth is \n{}".format(earliest_birth))
         print("\nThe most recent year of birth is \n{}".format(recent_birth))
         print("\nThe most common year of birth is \n{}".format(common_birth))
@@ -185,15 +186,15 @@ def raw_data(df):
 
     """
     """Get user input for city (chicago, new york city, washington). """
-    N=0
+    N = 0
 
     while True:
         reply = input('\n Do you want to see some raw data?  Enter yes or no \n').lower()
-        if reply=="no":
+        if reply == "no":
             break
-        elif reply=="yes":
+        elif reply == "yes":
             print(df.iloc[N:(N+5)])
-            N+=5
+            N += 5
         else:
             print('\nPlease type in either yes or no.\n')
 
@@ -214,4 +215,4 @@ def main():
 
 
 if __name__ == "__main__":
-	main()
+    main()
