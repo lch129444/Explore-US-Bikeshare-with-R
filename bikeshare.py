@@ -83,13 +83,13 @@ def time_stats(df):
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
 
-    # TO DO: display the most common month
+    """Display the most common month"""
     popular_month=df['month'].mode()[0]
 
-    # TO DO: display the most common day of week
+    """Display the most common day of week"""
     popular_day=df['day_of_week'].mode()[0]
 
-    # TO DO: display the most common start hour
+    """Display the most common start hour"""
     df['hour']=df['Start Time'].dt.hour
     popular_hour=df['hour'].mode()[0]
 
@@ -107,13 +107,13 @@ def station_stats(df):
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
 
-    # TO DO: display most commonly used start station
+    """Display most commonly used start station"""
     popular_start=df['Start Station'].mode()[0]
 
-    # TO DO: display most commonly used end station
+    """Display most commonly used end station"""
     popular_end=df['End Station'].mode()[0]
 
-    # TO DO: display most frequent combination of start station and end station trip
+    """Display most frequent combination of start station and end station trip"""
     popular_trip=df.groupby(['Start Station', 'End Station']).size().nlargest(1)
 
     print("\nThe most popular start station is {}; \
@@ -128,12 +128,12 @@ def trip_duration_stats(df):
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
 
-    # TO DO: display total travel time
+    """Display total travel time"""
     df['End Time']=pd.to_datetime(df['End Time'])
     df['duration']=df['End Time']-df['Start Time']
     total_duration=df['duration'].sum()
 
-    # TO DO: display mean travel time
+    """Display mean travel time"""
     mean_duration=df['duration'].mean()
 
     print("\nTotal travel time is {}; \
@@ -148,11 +148,11 @@ def user_stats(df):
     print('\nCalculating User Stats...\n')
     start_time = time.time()
 
-    # TO DO: Display counts of user types
+    """Display counts of user types"""
     user_counts=df['User Type'].value_counts()
     print("\nThe breakdown of users is: \n{}".format(user_counts))
 
-    # TO DO: Display counts of gender
+    """Display counts of gender"""
     if 'Gender' in df.columns:
         gender_counts=df['Gender'].value_counts()
         print("\nThe breakdown of gender is \n{}".format(gender_counts))
@@ -160,7 +160,7 @@ def user_stats(df):
         print( "this city does not have gender data")
 
 
-    # TO DO: Display earliest, most recent, and most common year of birth
+    """Display earliest, most recent, and most common year of birth"""
     if 'Birth Year' in df.columns:
         earliest_birth=df['Birth Year'].min()
         recent_birth=df['Birth Year'].max()
@@ -184,7 +184,7 @@ def raw_data(df):
         If the user answers 'yes,' then the script should print 5 rows of the data at a time, then ask the user if they would like to see 5 more rows of the data.
 
     """
-    # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
+    """Get user input for city (chicago, new york city, washington). """
     N=0
 
     while True:
