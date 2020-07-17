@@ -14,22 +14,17 @@ By computing a variety of descriptive statistics, this project provide the follo
 
 **1. Popular times of travel**
 * most common month
-* most common day of week
-* most common hour of day
 
 **2. Popular stations and trip**
 * most common start station
-* most common end station
-* most common trip from start to end (i.e., most frequent combination of start station and end station)
 
 **3. Trip duration**
-* total travel time
 * average travel time
 
-**4. User info**
-* counts of each user type
-* counts of each gender (only available for NYC and Chicago)
-* earliest, most recent, most common year of birth (only available for NYC and Chicago)
+**4. Plots for the above questions**
+* plots of most common month for each city
+* plots of most common start station for each city
+* plots of average travel time for each city
 
 ### Files used
 In this project, I used data provided by [Motivate](https://www.motivateco.com/), a bike share system provider for many major cities in the United States, to uncover bike share usage patterns.
@@ -40,7 +35,8 @@ The data files used are:
 3. washington.csv
 
 ### Software used
-* Python 3, NumPy, and pandas
+* RStudio
+* Jupyter
 * Atom
 - Terminal on Mac
 
