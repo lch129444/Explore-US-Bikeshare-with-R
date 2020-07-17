@@ -1,13 +1,13 @@
 ### Date created
-2020-05-11
+2020-07-16
 
 ### Project Title
-# Interactive Explore US Bikeshare Data
+# Explore US Bikeshare Data with R
 
 ### Description
-This project uses Python to explore data related to bike share systems for three major cities in the United States—*Chicago*, *New York City*, and *Washington*.  
+This project uses R to explore data related to bike share systems for three major cities in the United States—*Chicago*, *New York City*, and *Washington*.  
 
-It imports raw data to create an interactive experience in the terminal to answer interesting questions about the data by computing descriptive statistics.
+It imports raw data to answer interesting questions about the data by computing descriptive statistics and making visualizations.
 
 ### Statistics Computed
 By computing a variety of descriptive statistics, this project provide the following information:
