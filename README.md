@@ -21,10 +21,10 @@ By computing a variety of descriptive statistics, this project provide the follo
 **3. Trip duration**
 * average travel time
 
-**4. Plots for the above questions**
-* plots of most common month for each city
-* plots of most common start station for each city
-* plots of average travel time for each city
+### Plots for the Questions
+**1. plots of most common month for each city**
+**2. plots of most common start station for each city**
+**3. plots of average travel time for each city**
 
 ### Files used
 In this project, I used data provided by [Motivate](https://www.motivateco.com/), a bike share system provider for many major cities in the United States, to uncover bike share usage patterns.
