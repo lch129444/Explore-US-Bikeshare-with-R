@@ -41,6 +41,5 @@ The data files used are:
 - Terminal on Mac
 
 ### Credits
-* This project is an assignment of [Udacity](https://www.udacity.com/) [Programming for Data Science with Python](https://classroom.udacity.com/nanodegrees/nd104/dashboard/overview).
+* This project is an assignment of [Udacity](https://www.udacity.com/) [Programming for Data Science with R](https://classroom.udacity.com/nanodegrees/nd118/parts/b6a20e57-d477-45c8-9deb-5b87abe46bb3/modules/a94a948b-7d49-42bd-a9a2-f32493b99b65/lessons/cf989766-615b-48fc-b448-2fffeaccd072/concepts/d118d7d3-7b27-4871-b1ef-e4e50cfb0111).
 * I was inspired by repo [create-your-own-adventure](https://github.com/udacity/create-your-own-adventure/blob/master/README.md) for README writing.  
-- I checked [Markdown quick reference cheat sheet](https://wordpress.com/support/markdown-quick-reference/) for markdown reference.
